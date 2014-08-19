@@ -37,11 +37,11 @@
 
 ## Kom igang med HTML, CSS, JavaScript og HTTP
 
-Presentasjon holdt for Online og Abakus
+&nbsp;
 
-Kim Joar Bekkelund og Olav Bjørkøy
+Kim Joar Bekkelund
 
-August 2012
+August 2014
 
 ---
 
@@ -50,16 +50,16 @@ August 2012
 # Agenda
 
 * Nettleseren      <span class="alt">(klienten)</span>
+* HTTP             <span class="alt">(transport)</span>
 * HTML             <span class="alt">(innhold)</span>
 * CSS              <span class="alt">(design)</span>
 * JavaScript       <span class="alt">(oppførsel)</span>
-* HTTP             <span class="alt">(transport)</span>
 
 ---
 
 .middle.center
 
-# Nettleseren 
+# Nettleseren
 
 ---
 
@@ -67,15 +67,11 @@ August 2012
 
 ![Browsers](img/browsers.png)
 
-&nbsp;
-
-Konkurranse mellom nettlesere er flott!
-
 ---
 
 .middle.center
 
-![Spider](img/spider.jpg)
+![Browser Stats](img/browser-stats-no-mobile-safari.png)
 
 ---
 
@@ -89,23 +85,9 @@ Konkurranse mellom nettlesere er flott!
 
 .middle.center
 
-![Browser Stats](img/statcounter.png)
+![Apple](img/apple.com.2014.png)
 
-Chrome > IE9 > Firefox 5+ > IE8 > Safari (OS X) > Opera > Safari (iPad) > IE7
-
----
-
-.middle.center
-
-![Sites](img/sites.png)
-
----
-
-.middle.center
-
-![Apple 2012](img/apple.com.2012.png)
-
-apple.com, 2012
+apple.com, 2014
 
 ---
 
@@ -127,13 +109,197 @@ vg.no, 1996
 
 .middle.center
 
+<video class="vp" width="100%" height="543" controls="controls">
+   <source src="spotify.mov" type="video/mp4">
+   <source src="spotify.mov" type="video/ogg">
+    Your browser does not support the video tag.
+</video>
+
+---
+
+.middle.center
+
+# Men hvordan fungerer egentlig en nettleser?
+
+---
+
+.middle.center
+
+![HTTP](img/http.gif)
+
+---
+
+
+.middle.center
+
+# Hypertext Transfer Protocol
+
+# (HTTP)
+
+---
+
+.middle.center
+
+HTTP er en protokoll
+
+---
+
+.middle.center
+
+![HTTP](img/what.gif)
+
+---
+
+.middle
+
+*Protokoll*
+
+Gjør det mulig for "datamaskiner" å snakke sammen
+
+---
+
+.middle
+
+*HTTP*
+
+Gjør det mulig for nettlesere å be om blant annet HTML, CSS og JavaScript
+
+---
+
+.middle.center
+
+Vi gjør sjelden HTTP-kall selv, men viktig å forstå hva som skjer
+
+---
+
+HTTP-request for forsiden av [bekk.no](http://bekk.no)
+
+    .no-highlight
+    GET / HTTP/1.1
+    Host: bekk.no
+
+---
+
+HTTP-request for forsiden av [bekk.no](http://bekk.no)
+
+    .no-highlight
+    GET / HTTP/1.1
+    Host: bekk.no
+
+Litt av responsen:
+
+    .no-highlight
+    HTTP/1.1 200 OK
+    Cache-Control: …
+    Connection: …
+    Content-Type: text/html; charset=utf-8
+    Date: Sun, 19 Aug 2012 10:07:11 GMT
+    Expires: …
+    Server: …
+    Set-Cookie: …
+    Set-Cookie: …
+    Transfer-Encoding: …
+    X-AspNet-Version: …
+    X-Powered-By: …
+
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            …
+        </head>
+        <body>
+            …
+        </body>
+    </html>
+
+---
+
+Fra kommendolinjen med Telnet:
+
+    .no-highlight
+    telnet bekk.no 80
+
+HTTP-requesten:
+
+    .no-highlight
+    GET / HTTP/1.1
+    Host: bekk.no
+
+---
+
+.middle.center
+
+HTTP/1.1 200 OK
+
+---
+
+.middle.center
+
+HTTP/1.1 200 OK
+
+HTTP/1.1 404 Not Found
+
+---
+
+.middle.center
+
+
+HTTP/1.1 200 OK
+
+HTTP/1.1 404 Not Found
+
+HTTP/1.1 500 Not Found
+
+---
+
+.middle.center
+
+![http://www.jackfig.com/404](img/jackfig404.png)
+
+---
+
+.middle.center
+
+![Digipost 404](img/digipost404.png)
+
+---
+
+.middle.center
+
+![Simpsons 404](img/404_3.png)
+
+---
+
+.middle.center
+
+![Tumblebeasts](img/tumble.png)
+
+---
+
+.middle.center
+
+
+HTTP/1.1 200 OK
+
+HTTP/1.1 404 Not Found
+
+HTTP/1.1 500 Server Error
+
+(HTTP/1.1 418 I'm a teapot)
+
+
+---
+
+.middle.center
+
 Men hva består en nettside av?
 
 ---
 
 .middle.center
 
-# HyperText Markup Language 
+# HyperText Markup Language
 
 # (HTML)
 
@@ -160,7 +326,7 @@ Men hva består en nettside av?
     </p>
 
     <p>
-        Her er en link til en annen side: 
+        Her er en link til en annen side:
         <a href="http://bekk.no">Bekk Consulting AS</a>.
     </p>
 
@@ -225,12 +391,12 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 ![Bekk.no](img/bekk.no.png)
 
-[view-source:bekk.no](http://www.bekk.no)
+[view-source:bekk.no](view-source:http://www.bekk.no)
 
 ---
 
 # HTML
-  
+
     .html
     <!doctype html>
 
@@ -246,7 +412,7 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 
 
-        </body> 
+        </body>
     </html>
 
 ---
@@ -273,9 +439,29 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 ---
 
+# Oppgave
+
+Lek med HTML: [goo.gl/jP3Nv](http://goo.gl/jP3Nv)
+
+* Skriv inn navnet ditt som tittel
+* Gjør om punktlisten til å inneholde alt du ELSKER med One Direction
+* Gjør om den nummererte listen til å inneholde dine favoritt-bøker eller filmer.
+
+---
+
 .middle.center
 
-[goo.gl/jP3Nv](http://goo.gl/jP3Nv)
+# Chrome Developer Tools
+
+La oss endre litt på en eksisterende side....
+
+---
+
+.middle.center
+
+# Oppgave
+
+Gå inn på en venn på Facebook, og endre hjemsted, antall venner, sivilstatus, navn eller bilde ved hjelp Developer Tools.
 
 ---
 
@@ -289,7 +475,7 @@ Men hva med hvordan innholdet *ser ut*?
 
 .middle.center
 
-# Cascading Style Sheets 
+# Cascading Style Sheets
 
 # (CSS)
 
@@ -324,12 +510,6 @@ Men hva med hvordan innholdet *ser ut*?
 
 ---
 
-.middle.center
-
-![Really do](img/really.jpeg)
-
----
-
 # CSS
 
     .css
@@ -349,44 +529,36 @@ Men hva med hvordan innholdet *ser ut*?
     .html
     <!-- index.html -->
 
-    <link href="screen.css" rel="stylesheet">    
+    <link href="screen.css" rel="stylesheet">
 
 ---
 
 # CSS
 
     .css
-    /* 
-     * <body>...</body> 
+    /*
+     * <body>...</body>
      */
-    body { background: red; }     
+    body { background: red; }
 
-    /* 
-     * <h1>...</h1> 
+    /*
+     * <h1>...</h1>
      */
-    h1 { color: white; } 
-    
-    /* 
-     * <div class="description">...</div> 
-     */
-    .description { font-weight:bold; } 
-    
-    /* 
-     * <div id="content">...</div> 
-     */
-    #content { margin:10px; } 
+    h1 { color: white; }
 
-    /* 
+    /*
+     * <div class="description">...</div>
+     */
+    .description { font-weight:bold; }
+
+    /*
+     * <div id="content">...</div>
+     */
+    #content { margin:10px; }
+
+    /*
      * ID > Klasse > Element > Rekkefølge
      */
-
----
-
-.middle.center
-
-![CSSZenGarden](img/zen.orig.png)
-
-[csszengarden.com](http://www.csszengarden.com/)
 
 ---
 
@@ -428,7 +600,8 @@ Men hva med hvordan innholdet *ser ut*?
 
 .middle.center
 
-[goo.gl/psbDf](http://goo.gl/psbDf)
+# Oppgave
+Legg inn nye farger, skriftstørrelser og skygge på nettsiden: [goo.gl/psbDf](http://goo.gl/psbDf)
 
 ---
 
@@ -468,14 +641,14 @@ Men hva med hvordan innholdet *ser ut*?
             width:500px;
         }
     }
-    
+
     /* Retina display */
-    @media 
+    @media
         only screen and (-webkit-min-device-pixel-ratio: 2),
         only screen and (min--moz-device-pixel-ratio: 2),
         only screen and (-o-min-device-pixel-ratio: 2/1),
-        only screen and (min-device-pixel-ratio: 2) 
-    {
+        only screen and (min-device-pixel-ratio: 2) {
+
         #myimage {
             background:url("img/myimage@2x.png");
         }
@@ -522,7 +695,7 @@ Men hva hvis vi trenger *dynamisk oppførsel*?
 .middle.center
 
 ![Three.js](img/threejs.png)
-[Three.js](http://mrdoob.github.com/three.js/)
+[Three.js](http://mrdoob.github.com/three.js/) [1](http://threejs.org/examples/#webgl_materials_shaders_fresnel) [1](https://www.cubeslam.com)
 
 ---
 
@@ -568,7 +741,7 @@ La oss ta en rask introduksjon
     function add(a, b) {
         return a + b;
     } // For de som kan matte: f(x,y) = x + y
-    
+
     add(2, 2); // f(2,2) = 4
 
 ---
@@ -579,7 +752,7 @@ La oss ta en rask introduksjon
     function add(a, b) {
         return a + b;
     } // For de som kan matte: f(x,y) = x + y
-    
+
     add(2, 2); // f(2,2) = 4
 
 Skrevet på en litt annen måte:
@@ -588,7 +761,7 @@ Skrevet på en litt annen måte:
     var add = function(a, b) {
         return a + b;
     }
-    
+
     add(2, 2); // 4
 
 ---
@@ -1022,152 +1195,6 @@ Men hvor kommer alle disse filene fra?
 
 ---
 
-.middle.center
-
-# Hypertext Transfer Protocol 
-
-# (HTTP)
-
----
-
-.middle.center
-
-*http*://bekk.no
-
----
-
-.middle.center
-
-HTTP er en protokoll
-
----
-
-.middle.center.big
-
-?
-
----
-
-.middle
-
-*Protokoll*
-
-Gjør det mulig for "datamaskiner" å snakke sammen
-
----
-
-.middle
-
-*HTTP*
-
-Gjør det mulig for nettlesere å be om blant annet HTML, CSS og JavaScript
-
----
-
-.middle.center
-
-Vi gjør sjelden HTTP-kall selv, men viktig å forstå hva som skjer
-
----
-
-HTTP-request for forsiden av [bekk.no](http://bekk.no)
-
-    .no-highlight
-    GET / HTTP/1.1
-    Host: bekk.no
-
----
-
-HTTP-request for forsiden av [bekk.no](http://bekk.no)
-
-    .no-highlight
-    GET / HTTP/1.1
-    Host: bekk.no
-
-Litt av responsen:
-
-    .no-highlight
-    HTTP/1.1 200 OK
-    Cache-Control: …
-    Connection: …
-    Content-Type: text/html; charset=utf-8
-    Date: Sun, 19 Aug 2012 10:07:11 GMT
-    Expires: …
-    Server: …
-    Set-Cookie: …
-    Set-Cookie: …
-    Transfer-Encoding: …
-    X-AspNet-Version: …
-    X-Powered-By: …
-    
-    
-    <!DOCTYPE html>
-    <html>
-        <head>
-            …
-        </head>
-        <body>
-            …
-        </body>
-    </html>
-
----
-
-Fra kommendolinjen med Telnet:
-
-    .no-highlight
-    telnet bekk.no 80
-
-HTTP-requesten:
-
-    .no-highlight
-    GET / HTTP/1.1
-    Host: bekk.no
-
----
-
-Fra kommendolinjen med Telnet:
-
-    .no-highlight
-    telnet bekk.no 80
-
-HTTP-requesten:
-
-    .no-highlight
-    GET / HTTP/1.1
-    Host: bekk.no
-
-La oss hente et bilde:
-
-    .no-highlight
-    GET /Content/Images/services-tech.png HTTP/1.1
-    Host: bekk.no
-
----
-
-.middle.center
-
-HTTP/1.1 200 OK
-
----
-
-.middle.center
-
-HTTP/1.1 404 Not Found
-
----
-
-.middle.center
-
-![http://www.jackfig.com/404](img/jackfig404.png)
-
----
-
-.middle.center
-
-![Digipost 404](img/digipost404.png)
-
----
 
 .middle.center
 
@@ -1197,13 +1224,13 @@ Alt har sin oppgave
 
 .middle.center
 
+HTTP &mdash; transport
+
 HTML &mdash; innhold
 
 CSS &mdash; design
 
 JavaScript &mdash; oppførsel
-
-HTTP &mdash; transport
 
 ---
 
@@ -1244,8 +1271,6 @@ JavaScript på serveren med Node.js
 Spørsmål?
 
 kim.bekkelund@bekk.no, @kimjoar
-
-olav.bjorkoy@bekk.no, @vandelay
 
     </textarea>
     <div id="slideshow"></div>
